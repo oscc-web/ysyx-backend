@@ -1,0 +1,14 @@
+{
+    "name": "ysyx-oj-system",
+    "version": "1.0.0",
+    "scripts": {
+        "dev": "node ./src/app.js",
+        "pro-start": "pm2 start --name ysyx-backend ./src/app.js",
+        "pro-stop": "pm2 stop ysyx-backend"
+    },
+    "dependencies": {
+        "dayjs": "^1.11.7",
+        "formidable": "^1.2.1",
+        "uuid": "^9.0.0"
+    }
+}
