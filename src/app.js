@@ -1,11 +1,12 @@
 const fs = require("fs");
-const http = require("http");
+const https = require("https");
 const path = require("path");
 
 const {
     port,
     dirRoot,
-    dirUpload
+    dirUpload,
+    options
 } = require("./config/config.js");
 
 const {
@@ -50,7 +51,7 @@ function handlePage404(res, fileDir) {
     return false
 }
 
-const server = http.createServer((req, res) => {
+const server = https.createServer(options, (req, res) => {
     let url = decodeURI(req.url);
     let method = req.method.toLowerCase()
     console.log("[info] interface url:", url);
