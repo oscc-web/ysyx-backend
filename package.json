@@ -1,5 +1,5 @@
 {
-    "name": "ysyx-oj-system",
+    "name": "ysyx-backend",
     "version": "1.0.0",
     "scripts": {
         "dev": "node ./src/app.js",
