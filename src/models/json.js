@@ -1,19 +1,19 @@
 const fs = require("fs");
 
 module.exports = {
-    addJSONDataToBack: function(fileName, obj) {
+    addJSONDataToBack: (fileName, obj) => {
         const jsonArr = this.getJSONDataAll(fileName);
         jsonArr.push(obj);
         fs.writeFileSync(fileName, JSON.stringify(jsonArr));
         return jsonArr;
     },
-    addJSONDataToTop: function(fileName, obj) {
+    addJSONDataToTop: (fileName, obj) => {
         const jsonArr = this.getJSONDataAll(fileName);
         jsonArr.unshift(obj);
         fs.writeFileSync(fileName, JSON.stringify(jsonArr));
         return jsonArr;
     },
-    deleteJSONDataById: function(fileName, id) {
+    deleteJSONDataById: (fileName, id) => {
         const jsonArr = this.getJSONDataAll(fileName);
         const jsonObjIndex = jsonArr.findIndex((v) => {
             return v.id === id
@@ -27,7 +27,7 @@ module.exports = {
             return false;
         }
     },
-    getJSONDataAll: function(fileName) {
+    getJSONDataAll: (fileName) => {
         try {
             fs.accessSync(fileName);
         }
@@ -37,7 +37,7 @@ module.exports = {
         const jsonArr = JSON.parse(fs.readFileSync(fileName, "utf-8"));
         return jsonArr;
     },
-    getJSONDataByField: function(fileName, type, field, value) {
+    getJSONDataByField: (fileName, type, field, value) => {
         const jsonArr = this.getJSONDataAll(fileName);
         let jsonArrNew = [];
         jsonArr.forEach((v) => {
@@ -61,7 +61,7 @@ module.exports = {
             return [];
         }
     },
-    getJSONDataByOrder: function(fileName, sortField, sortType, sortOrder) {
+    getJSONDataByOrder: (fileName, sortField, sortType, sortOrder) => {
         let jsonArr = [];
         if (typeof(fileName) === "string") {
             jsonArr = this.getJSONDataAll(fileName);
@@ -75,7 +75,7 @@ module.exports = {
                                         sortType,
                                         sortOrder);
     },
-    getJSONDataByPage: function(fileName, page, pagePerNum) {
+    getJSONDataByPage: (fileName, page, pagePerNum) => {
         let jsonArr = [];
         if (typeof(fileName) === "string") {
             jsonArr = this.getJSONDataAll(fileName);
@@ -101,7 +101,7 @@ module.exports = {
         const jsonPageArr = jsonArr.slice((page - 1) * pagePerNum, pageNum);
         return jsonPageArr;
     },
-    handleJSONDataOrder: function(jsonArr, sortField, sortType, sortOrder) {
+    handleJSONDataOrder: (jsonArr, sortField, sortType, sortOrder) => {
         jsonArr.sort((objA, objB) => {
             let valA = objA[sortField];
             let valB = objB[sortField];
@@ -138,7 +138,7 @@ module.exports = {
         });
         return jsonArr;
     },
-    setJSONDataById: function(fileName, id, obj) {
+    setJSONDataById: (fileName, id, obj) => {
         const jsonArr = this.getJSONDataAll(fileName);
         const jsonObj = jsonArr.find((v) => {
             return v.id === id
