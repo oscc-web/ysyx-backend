@@ -2,13 +2,14 @@
     "name": "ysyx-backend",
     "version": "1.0.0",
     "scripts": {
-        "dev": "node ./src/app.js",
-        "pro-start": "pm2 start --name ysyx-backend ./src/app.js",
+        "dev": "node ./src/app.ts",
+        "pro-start": "pm2 start --name ysyx-backend ./src/app.ts",
         "pro-stop": "pm2 stop ysyx-backend"
     },
     "dependencies": {
         "dayjs": "^1.11.7",
         "formidable": "^1.2.1",
+        "mongodb": "^6.3.0",
         "uuid": "^9.0.0"
     }
 }

@@ -6,12 +6,13 @@ const {
     port,
     dirRoot,
     dirUpload
-} = require("./config/config.js");
+} = require("./config/config.ts");
 
 const {
     setBooksDownloadNum,
-    getBooksDownloadNum
-} = require("./control/control.js");
+    getBooksDownloadNum,
+    setBooksErrorInfo,
+} = require("./control/control.ts");
 
 const contentTypeObj = {
     "json": "application/json",
@@ -75,6 +76,9 @@ const server = http.createServer((req, res) => {
     }
     else if (url === "/api/setBooksDownloadNum") {
         setBooksDownloadNum(req, res);
+    }
+    else if (url === "/api/setBooksErrorInfo") {
+        setBooksErrorInfo(req, res);
     }
     else {
         sendPage(res, path.join(dirRoot, url));
