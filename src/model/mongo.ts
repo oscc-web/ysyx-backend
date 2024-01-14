@@ -7,12 +7,14 @@ module.exports = {
             await dbClient.connect();
             const dbCurr = dbClient.db(dbName);
             const dbCollection = dbCurr.collection(ceName);
-            await dbCollection.deleteOne(condObj);
+            const res = await dbCollection.deleteOne(condObj);
             console.log("[data] delete data one");
             await dbClient.close();
+            return res;
         }
         catch (err) {
             console.error(err);
+            return err;
         }
     },
     deleteDataMany: async (dbName, ceName, condObj) => {
@@ -21,12 +23,13 @@ module.exports = {
             const dbCurr = dbClient.db(dbName);
             const dbCollection = dbCurr.collection(ceName);
             const res = await dbCollection.deleteMany(condObj);
-            console.log("[data] delete data many");
-            console.log("[data] delete data number: " + res.deletedCount);
+            console.log("[data] delete data many, number: " + res.deletedCount);
             await dbClient.close();
+            return res;
         }
         catch (err) {
             console.error(err);
+            return err;
         }
     },
     findData: async (dbName, ceName, condObj) => {
@@ -42,6 +45,7 @@ module.exports = {
         }
         catch (err) {
             console.error(err);
+            return err;
         }
     },
     findDataByOrder: async (dbName, ceName, condObj, sortCol, sortASC) => {
@@ -58,6 +62,7 @@ module.exports = {
         }
         catch (err) {
             console.error(err);
+            return err;
         }
     },
     insertDataOne: async (dbName, ceName, dataObj) => {
@@ -65,12 +70,14 @@ module.exports = {
             await dbClient.connect();
             const dbCurr = dbClient.db(dbName);
             const dbCollection = dbCurr.collection(ceName);
-            await dbCollection.insertOne(dataObj);
+            const res = await dbCollection.insertOne(dataObj);
             console.log("[data] insert data one");
             await dbClient.close();
+            return res;
         }
         catch (err) {
             console.error(err);
+            return err;
         }
     },
     insertDataMany: async (dbName, ceName, dataArr) => {
@@ -79,12 +86,13 @@ module.exports = {
             const dbCurr = dbClient.db(dbName);
             const dbCollection = dbCurr.collection(ceName);
             const res = await dbCollection.insertMany(dataArr);
-            console.log("[data] insert data many");
-            console.log("[data] insert data number: " + res.insertedCount);
+            console.log("[data] insert data many, number: "  + res.insertedCount);
             await dbClient.close();
+            return res;
         }
         catch (err) {
             console.error(err);
+            return err;
         }
     },
     updateDataOne: async (dbName, ceName, condObj, dataObj) => {
@@ -93,12 +101,14 @@ module.exports = {
             const dbCurr = dbClient.db(dbName);
             const dbCollection = dbCurr.collection(ceName);
             const dbObjSet = { $set: dataObj };
-            await dbCollection.updateOne(condObj, dbObjSet);
+            const res = await dbCollection.updateOne(condObj, dbObjSet);
             console.log("[data] update data one");
             await dbClient.close();
+            return res;
         }
         catch (err) {
             console.error(err);
+            return err;
         }
     },
     updateDataMany: async (dbName, ceName, condObj, dataObj) => {
@@ -108,12 +118,13 @@ module.exports = {
             const dbCollection = dbCurr.collection(ceName);
             const dbObjSet = { $set: dataObj };
             const res = await dbCollection.updateMany(condObj, dbObjSet);
-            console.log("[data] update data many");
-            console.log("[data] update data number: " + res.modifiedCount);
+            console.log("[data] update data many, number: " + res.modifiedCount);
             await dbClient.close();
+            return res;
         }
         catch (err) {
             console.error(err);
+            return err;
         }
     }
 }
