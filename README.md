@@ -54,7 +54,7 @@ $> ./setup.sh
 ```sh
 $> npm run test      // 测试后端服务各模块
 $> npm run dev       // 开发环境下启动服务
-$> npm run pro-start // 生产环境下启动服务
+$> npm run pro-start // 生产环境下启动服务（有问题）
 $> npm run pro-stop  // 生产环境下停止服务
 ```
 
