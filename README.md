@@ -39,10 +39,10 @@ $> cd your-workspaces
 $> git clone git@github.com:oscc-web/ysyx-backend.git
 ```
 
-### 安装依赖
+### 更新依赖
 
 ```sh
-$> npm install
+$> ./setup.sh
 ```
 
 ### 配置系统
