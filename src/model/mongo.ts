@@ -1,9 +1,10 @@
 const config = require("../config/config-dynamic.ts");
 
 let dbURL = (!config.dbUsername) ? "mongodb://127.0.0.1:27017/" :
-                                   `mongodb://${config.dbUsername}:
-                                   ${config.dbPassword}@127.0.0.1:27017/
-                                   ${config.dbName}`;
+                                   `mongodb://${config.dbUsername}:` +
+                                   `${config.dbPassword}@127.0.0.1:27017/` +
+                                   `${config.dbName}`;
+				   console.log(dbURL)
 let dbClient = new (require("mongodb").MongoClient)(dbURL);
 
 module.exports = {
