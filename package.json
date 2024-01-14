@@ -2,6 +2,7 @@
     "name": "ysyx-backend",
     "version": "1.0.0",
     "scripts": {
+        "test": "node ./test/test.ts",
         "dev": "node ./src/app.ts",
         "pro-start": "pm2 start --name ysyx-backend ./src/app.ts",
         "pro-stop": "pm2 stop ysyx-backend"
