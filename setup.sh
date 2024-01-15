@@ -6,6 +6,8 @@ PATH_ROOT=${PWD}
 PATH_NODE=${PATH_ROOT}/node_modules/
 
 if [ ! -f ${PATH_ROOT}/src/config/config-dynamic.ts ]; then
+    echo "Generating dynamic config..."
+    echo ""
     cat > ${PATH_ROOT}/src/config/config-dynamic.ts << EOF
 module.exports = {
     dbUsername: "",
@@ -16,7 +18,6 @@ EOF
 fi
 
 if [ ! -d ${PATH_NODE} ]; then
-    echo ""
     echo "Downloading Node.js packages..."
     npm install
 else
