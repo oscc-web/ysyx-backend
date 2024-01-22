@@ -61,6 +61,5 @@ $> npm run pro-stop  // 生产环境下停止服务
 ### 更新仓库
 
 ```sh
-$> cd your-workspaces/ysyx-backend
 $> git pull
 ```

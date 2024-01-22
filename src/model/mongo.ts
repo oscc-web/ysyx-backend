@@ -1,4 +1,4 @@
-const config = require("../config/config-dynamic.ts");
+const config = require("../config/config-temp.ts");
 
 let dbURL = (!config.dbUsername) ? "mongodb://127.0.0.1:27017/" :
                                    `mongodb://${config.dbUsername}:` +

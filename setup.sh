@@ -5,10 +5,10 @@ set -e
 PATH_ROOT=${PWD}
 PATH_NODE=${PATH_ROOT}/node_modules/
 
-if [ ! -f ${PATH_ROOT}/src/config/config-dynamic.ts ]; then
+if [ ! -f ${PATH_ROOT}/src/config/config-temp.ts ]; then
     echo "Generating dynamic config..."
     echo ""
-    cat > ${PATH_ROOT}/src/config/config-dynamic.ts << EOF
+    cat > ${PATH_ROOT}/src/config/config-temp.ts << EOF
 module.exports = {
     dbUsername: "",
     dbPassword: "",
