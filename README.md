@@ -41,6 +41,7 @@ $> git clone git@github.com:oscc-web/ysyx-backend.git
 
 ### 更新依赖
 
+运行以下命令生成数据库配置文件并自动安装/更新Node.js依赖包，其中数据库配置与OSCC-BACKEND保持一致，请联系管理员获取。
 ```sh
 $> ./setup.sh
 ```
